@@ -1,26 +1,24 @@
 package com.pinu.pankti_prajapapati_demo_project.domain.model
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
+import com.google.gson.annotations.SerializedName
+
+
 data class HoldingsResponse(
-    @SerialName("data") val holdingData: Holdings? = null,
+    @SerializedName("data") val holdingData: Holdings? = null,
 )
 
-@Serializable
 data class Holdings(
-    @SerialName("userHolding") val userHolding: List<HoldingDataModel>?,
+    @SerializedName("userHolding") val userHolding: List<HoldingDataModel>?,
 )
 
 
-@Serializable
 data class HoldingDataModel(
-    @SerialName("symbol") val symbol: String,
-    @SerialName("quantity") val quantity: Int,
-    @SerialName("avgPrice") val avgPrice: Double,
-    @SerialName("ltp") val ltp: Double,
-    @SerialName("close") val close: Double,
+    @SerializedName("symbol") val symbol: String,
+    @SerializedName("quantity") val quantity: Int,
+    @SerializedName("avgPrice") val avgPrice: Double,
+    @SerializedName("ltp") val ltp: Double,
+    @SerializedName("close") val close: Double,
 ) {
     val currentValue: Double
         get() = ltp * quantity

@@ -5,6 +5,7 @@ import com.pinu.pankti_prajapapati_demo_project.domain.model.HoldingDataModel
 
 data class HoldingsUIState(
     val isLoading: Boolean = false,
+    val isInternetConnected: Boolean = true,
     val holdings: List<HoldingDataModel> = emptyList(),
     val error: String? = null,
     val isSummaryExpanded: Boolean = false

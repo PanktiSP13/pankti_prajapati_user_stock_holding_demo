@@ -6,6 +6,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 
@@ -56,3 +57,6 @@ class Network private constructor() {
     val networkAPI: NetworkAPI by lazy { retrofit().create(NetworkAPI::class.java) }
 
 }
+
+// custom exception
+class NoInternetException(message: String = "No internet connection") : IOException(message)

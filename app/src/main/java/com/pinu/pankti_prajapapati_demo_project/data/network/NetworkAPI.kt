@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface NetworkAPI {
 
     @GET("/")
-    suspend fun getHoldings(): HoldingsResponse
+    suspend fun fetchHoldings(): HoldingsResponse
 }

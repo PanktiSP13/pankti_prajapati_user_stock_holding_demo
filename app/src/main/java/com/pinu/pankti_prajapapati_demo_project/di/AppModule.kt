@@ -1,5 +1,6 @@
 package com.pinu.pankti_prajapapati_demo_project.di
 
+import android.content.Context
 import com.pinu.pankti_prajapapati_demo_project.data.network.Network
 import com.pinu.pankti_prajapapati_demo_project.data.network.NetworkAPI
 import com.pinu.pankti_prajapapati_demo_project.data.repositoryImpl.HoldingsRepositoryImpl
@@ -8,6 +9,7 @@ import com.pinu.pankti_prajapapati_demo_project.domain.viewmodels.HoldingsViewMo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -19,18 +21,20 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providesNetworkAPI():  NetworkAPI  {
-        return Network.init().networkAPI
+    fun providesNetworkAPI():  NetworkAPI = Network.init().networkAPI
+
+    @Singleton
+    @Provides
+    fun providesHoldingsRepository(networkAPI: NetworkAPI, @ApplicationContext context: Context): HoldingsRepository {
+        return HoldingsRepositoryImpl(networkAPI = networkAPI, context = context)
     }
 
-    @Singleton
-    @Provides
-    fun providesHoldingsRepository(networkAPI: NetworkAPI): HoldingsRepository = HoldingsRepositoryImpl(networkAPI)
-
 
     @Singleton
     @Provides
-    fun providesHoldingsViewModel(holdingsRepository: HoldingsRepository): HoldingsViewModel = HoldingsViewModel(holdingsRepository)
+    fun providesHoldingsViewModel(holdingsRepository: HoldingsRepository): HoldingsViewModel {
+        return HoldingsViewModel(holdingsRepository)
+    }
 
 
 }
