@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pankti_prajapapati_Demo_Project</string>
+    <string name="qty">Qty: %1$s</string>
+    <string name="ltp">LTP: ₹%1$s</string>
+    <string name="net_qty">"NET QTY : "</string>
+    <string name="holdings">Holdings</string>
+    <string name="ltp_label">"LTP: "</string>
+    <string name="pnl_label"><![CDATA["P&L: "]]></string>
+    <string name="portfolio">Portfolio</string>
+    <string name="current_value">Current value: %1$s</string>
+    <string name="expanded">expanded</string>
+    <string name="collapsed">collapsed</string>
+    <string name="profit_loss"><![CDATA[Profit & Loss*]]></string>
+    <string name="current_value_label">Current Value*</string>
+    <string name="total_investment">Total Investment*</string>
+    <string name="today_s_profit_loss"><![CDATA[Today\'s Profit & Loss*]]></string>
+</resources>
